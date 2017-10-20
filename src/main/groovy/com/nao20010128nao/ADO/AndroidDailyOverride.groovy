@@ -58,8 +58,9 @@ class AndroidDailyOverride {
             )
             new BigInteger(1, crypt.digest()).toString(16)
         })()
-        //check the env has intended value
-        assert value && value == System.getenv("ANDROID_DAILY_OVERRIDE")
+        //check the env has intended value and non-null
+        assert value && privEnv.ANDROID_DAILY_OVERRIDE &&
+            System.getenv("ANDROID_DAILY_OVERRIDE") && value == System.getenv("ANDROID_DAILY_OVERRIDE")
         successful=true
         executed=true
     }
